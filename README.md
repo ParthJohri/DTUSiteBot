@@ -19,7 +19,7 @@ This is a Python bot that automates the process of subject registration on a web
 3. Install the required dependencies:
 
    ```bash
-   pip install -r requirements.txt
+   pip install selenium
    ```
 
 ## Configuration
