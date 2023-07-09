@@ -1,4 +1,4 @@
-# Subject Registration Bot
+# 🚀 DTUSiteBot - A Subject Registration Bot
 
 This is a Python bot that automates the process of subject registration on a website. It uses Selenium WebDriver to interact with the website and perform the registration. The bot reads subject codes and credentials from text files, allowing you to easily registers you for the subject.
 
@@ -7,13 +7,13 @@ This is a Python bot that automates the process of subject registration on a web
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/subject-registration-bot.git
+   git clone https://github.com/ParthJohri/DTUSiteBot.git
    ```
 
 2. Navigate to the project directory:
 
    ```bash
-   cd subject-registration-bot
+   cd DTUSiteBot
    ```
 
 3. Install the required dependencies:
