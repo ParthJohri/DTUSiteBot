@@ -29,7 +29,6 @@ jobs:
       REGISTRY: ghcr.io
       # github.repository as <account>/<repo>
       IMAGE_NAME: ${{ github.repository }}
-      CHROMEDRIVER_VERSION: ${{ env.CHROMEDRIVER_VERSION }}
 
     steps:
       - name: Checkout repository
@@ -58,8 +57,11 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
+      - name: Set environment variable CHROMEDRIVER_VERSION
+        run: echo "CHROMEDRIVER_VERSION=${{ github.event_name != 'pull_request' }}" >> $GITHUB_ENV
+
       - name: Build Docker image
-        run: docker build --build-arg CHROMEDRIVER_VERSION=${{ env.CHROMEDRIVER_VERSION }} -t ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }} .
+        run: docker build --build-arg CHROMEDRIVER_VERSION=119.0.6045.105 -t ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }} .
 
       - name: Build and push Docker image
         id: build-and-push
