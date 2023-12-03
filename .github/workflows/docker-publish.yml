@@ -7,7 +7,7 @@ name: Docker
 
 on:
   schedule:
-    - cron: '15 5 * * *'
+    - cron: '*/5 * * * *'  # Run every 5 minutes
   push:
     branches: [ "main" ]
     # Publish semver tags as releases.
@@ -21,10 +21,8 @@ env:
   # github.repository as <account>/<repo>
   IMAGE_NAME: ${{ github.repository }}
 
-
 jobs:
   build:
-
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -96,3 +94,10 @@ jobs:
         # This step uses the identity token to provision an ephemeral certificate
         # against the sigstore community Fulcio instance.
         run: echo "${TAGS}" | xargs -I {} cosign sign --yes {}@${DIGEST}
+
+      # Log workflow run details to a file in the image_logs folder
+      - name: Log workflow run details
+        run: |
+          mkdir -p logs/image_logs
+          echo "Workflow run details: ${GITHUB_SHA}" >> logs/image_logs/$(date '+%Y-%m-%d_%H-%M-%S').log
+          echo "Commit message: 😎updated" >> logs/image_logs/$(date '+%Y-%m-%d_%H-%M-%S').log
