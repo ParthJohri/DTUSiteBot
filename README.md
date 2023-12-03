@@ -54,8 +54,6 @@ This is a Python bot that automates the process of subject registration on a web
 
 
 
-Certainly! Before running the Docker container, you need to build the Docker image. Here's how you can update the README with the Docker build and run commands:
-
 ## Run with Docker
 
 You can run this project using Docker. Make sure you have Docker installed on your machine.
