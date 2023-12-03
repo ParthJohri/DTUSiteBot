@@ -107,3 +107,16 @@ jobs:
           else
             echo "Commit message: 😎updated" > "$log_file"
           fi
+
+      - name: Commit files
+        run: |
+          git config --global user.email "anupammaurya6767@gmail.com"
+          git config --global user.name "anupammaurya6767"
+          git add -A
+          git diff-index --quiet HEAD || (git commit -a -m "👹:updated" --allow-empty)
+      
+      - name: Push changes
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ secrets.TOKEN }}
+          branch: main
