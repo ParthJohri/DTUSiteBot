@@ -51,3 +51,26 @@ This is a Python bot that automates the process of subject registration on a web
 4. Customize the bot:
 
    If you want to modify the behavior of the bot or add additional features, you can edit the `main.py` file. Make sure to test your changes thoroughly before running the bot.
+
+
+
+## Run with Docker
+
+You can run this project using Docker. Make sure you have Docker installed on your machine.
+
+### Step 1: Build the Docker Image
+
+Open a terminal, navigate to the root folder of the project, and run the following command to build the Docker image:
+
+```bash
+docker build -t your_docker_image:your_tag .
+```
+Replace your_docker_image:your_tag with the desired image name and tag.
+
+### Step 2: Run the Docker Container
+After successfully building the Docker image, run the following command to start the Docker container:
+```bash
+docker run -it --rm your_docker_image:your_tag
+```
+
+Replace your_docker_image:your_tag with the same image name and tag used during the build.
