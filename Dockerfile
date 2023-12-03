@@ -20,13 +20,11 @@ RUN echo "deb [signed-by=/usr/share/keyrings/google-archive-keyring.gpg] http://
 RUN apt-get update && apt-get install -y google-chrome-stable && rm -rf /var/lib/apt/lists/*
 
 # Install ChromeDriver
-ARG CHROMEDRIVER_VERSION
-RUN wget -q -O chromedriver.zip https://chromedriver.storage.googleapis.com/119.0.6045.105/chromedriver_linux64.zip \
+ARG CHROMEDRIVER_VERSION=114.0.5735.90
+RUN wget -q -O chromedriver.zip https://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip \
     && unzip -o chromedriver.zip -d /tmp \
     && mv /tmp/chromedriver /usr/local/bin/ \
     && rm chromedriver.zip
-
-
 
 # Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
