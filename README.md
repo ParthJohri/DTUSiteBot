@@ -69,7 +69,7 @@ docker build -t your_docker_image:your_tag .
 ```
 Replace your_docker_image:your_tag with the desired image name and tag.
 
-Step 2: Run the Docker Container
+### Step 2: Run the Docker Container
 After successfully building the Docker image, run the following command to start the Docker container:
 ```bash
 docker run -it --rm your_docker_image:your_tag
