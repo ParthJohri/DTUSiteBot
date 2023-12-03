@@ -11,6 +11,7 @@ COPY . /app
 RUN apt-get update && apt-get install -y \
     wget \
     unzip \
+    gnupg \  # Add this line to install gnupg
     && rm -rf /var/lib/apt/lists/*
 
 # Download and install Chrome
