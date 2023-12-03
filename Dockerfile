@@ -22,8 +22,10 @@ RUN apt-get update && apt-get install -y google-chrome-stable && rm -rf /var/lib
 
 # Install ChromeDriver
 RUN wget -q -O chromedriver.zip https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip \
-    && unzip -o chromedriver.zip -d /usr/local/bin \
+    && unzip -o chromedriver.zip -d /tmp \
+    && mv /tmp/chromedriver /usr/local/bin/ \
     && rm chromedriver.zip
+
 
 # Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
