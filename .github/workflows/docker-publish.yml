@@ -61,7 +61,7 @@ jobs:
         run: echo "CHROMEDRIVER_VERSION=${{ github.event_name != 'pull_request' }}" >> $GITHUB_ENV
 
       - name: Build Docker image
-        run: docker build --build-arg CHROMEDRIVER_VERSION=119.0.6045.105 -t ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }} .
+        run: docker build --build-arg CHROMEDRIVER_VERSION=114.0.5735.90 -t ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }} .
 
       - name: Build and push Docker image
         id: build-and-push
